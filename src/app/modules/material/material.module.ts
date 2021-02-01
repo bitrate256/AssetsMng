@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-// 브라우저 애니메이션
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 // 마테리얼
+// @angular/material 전부 불러오지 않고 개별 로드하도록 바뀜
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,21 +14,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
 
-// 플렉스 레이아웃
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomeComponent } from './component/home.component';
-import { BoardComponent } from './component/board/board.component';
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    BoardComponent
-  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
@@ -43,10 +26,20 @@ import { BoardComponent } from './component/board/board.component';
     MatIconModule,
     MatListModule,
     MatDialogModule,
-    MatSliderModule,
-    FlexLayoutModule
+    MatSliderModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatDialogModule,
+    MatSliderModule
+  ],
+  declarations: []
 })
-export class AppModule { }
+export class MaterialModule { }
