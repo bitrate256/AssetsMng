@@ -27,6 +27,7 @@ import { BoardComponent } from './component/board/board.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

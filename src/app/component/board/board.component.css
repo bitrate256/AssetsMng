@@ -33,7 +33,18 @@ mat-row:hover {
   cursor: pointer;
 }
 
-/* [신규 등록] 버튼 우측 정렬 */
+/* 모델명 검색 */
 .button-submit {
   float: right;
 }
+
+/* 사용자명 검색 */
+.assetName-searchBox {
+  margin-left : 30px;
+}
+
+/* [신규 등록] 버튼 우측 정렬 */
+.userName-searchBox {
+  margin-left : 30px;
+}
+
