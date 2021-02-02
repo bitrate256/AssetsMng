@@ -1,7 +1,7 @@
 export interface Post {
-  postId: number;
-  title: string;
-  author: string;
+  assetId: number;
+  assetCode: string;
+  assetName: string;
   content: string;
   createdAt: Date;
   modifiedAt: Date;

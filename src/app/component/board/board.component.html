@@ -1,1 +1,57 @@
-<p>board works!</p>
+// 현재 출력중인 파일 : board.component.html
+<div class="wrapper">
+  <mat-card class="card">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <H3>자산 리스트</H3>
+    </mat-card-title>
+
+    <mat-form-field appearance="fill">
+      <mat-label>자산 유형 선택</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let assetType of assetType" [value]="assetType.value">
+          {{assetType.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-card-content>
+      <div class="container">
+        <mat-table [dataSource]="posts">
+          <ng-container matColumnDef="assetId">
+            <mat-header-cell *matHeaderCellDef>no.</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetId}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="assetCode">
+            <mat-header-cell *matHeaderCellDef>코드</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetCode}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="assetName">
+            <mat-header-cell *matHeaderCellDef>자산명</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="createdAt">
+            <mat-header-cell *matHeaderCellDef>작성일</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.createdAt | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="modifiedAt">
+            <mat-header-cell *matHeaderCellDef>수정</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">
+              <mat-icon class="icon">edit</mat-icon>
+              <mat-icon class="icon">delete_forever</mat-icon>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <div *ngIf="posts.length === 0" class="no-content">
+          등록된 자산이 없습니다.
+        </div>
+      </div>
+    </mat-card-content>
+    <div>
+      <button class="button-submit" mat-raised-button color="primary">
+        <mat-icon>add</mat-icon> 신규 등록
+      </button>
+    </div>
+  </mat-card>
+</div>

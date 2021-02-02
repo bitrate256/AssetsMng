@@ -18,11 +18,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatSelectModule} from '@angular/material/select';
 
 // 플렉스 레이아웃
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './component/home.component';
 import { BoardComponent } from './component/board/board.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { BoardComponent } from './component/board/board.component';
     MatListModule,
     MatDialogModule,
     MatSliderModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
