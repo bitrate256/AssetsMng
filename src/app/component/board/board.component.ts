@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Post } from 'src/app/model/board/Post';
 import {PageEvent} from '@angular/material/paginator';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 /* 셀렉트박스 인터페이스 */
 interface AssetType {
@@ -50,9 +51,32 @@ export class BoardComponent implements OnInit {
       }
     }
   */
-  constructor() { }
+
+  /* 모달창 기능 */
+  title = 'angular-website';
+  closeResult!: string
+
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
+  }
+
+  open(content: any): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }
