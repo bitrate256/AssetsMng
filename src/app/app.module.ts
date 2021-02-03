@@ -20,11 +20,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSelectModule} from '@angular/material/select';
 
+
 // 플렉스 레이아웃
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './component/home.component';
 import { BoardComponent } from './component/board/board.component';
+
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -32,7 +35,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   declarations: [
     AppComponent,
     HomeComponent,
-    BoardComponent
+    BoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSliderModule,
     FlexLayoutModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
