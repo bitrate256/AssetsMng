@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Detail } from 'src/app/model/board/Detail';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 /* 셀렉트박스 인터페이스 */
 interface AssetType {
@@ -27,9 +28,31 @@ export class DetailComponent implements OnInit {
     {value: 'T', viewValue: '테이블'}
   ];
 
-  constructor() { }
+  /* 모달창 기능 */
+  title = 'angular-website';
+  closeResult!: string
+
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
+  }
+
+  open(content: any): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }

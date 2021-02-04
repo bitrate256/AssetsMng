@@ -18,7 +18,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button class="button-assetTypeInput" mat-raised-button color="primary">
+        <button class="button-assetTypeInput" mat-raised-button color="primary" (click)="open(mymodal)">
           유형등록
         </button>
         <mat-form-field class="asset_model_name-inputBox">
@@ -88,7 +88,7 @@
       </div>
     </mat-card-content>
     <div>
-      <button class="button-close" mat-raised-button color="primary">
+      <button class="button-close" mat-raised-button color="primary" [routerLink]="['/board']">
         닫기
       </button>
       <button class="button-save" mat-raised-button color="primary">
@@ -96,5 +96,32 @@
       </button>
     </div>
   </mat-card>
+
+  <!-- 모달창 템플릿 -->
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" class="modal-basic-title">자산 유형 등록</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <mat-card-content>
+        <mat-form-field class="asset_type_name-submitBox">
+          <h6>유형명</h6>
+          <input matInput>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-form-field class="asset_type_code-submitBox">
+          <h6>유형코드</h6>
+          <input matInput>
+        </mat-form-field>
+      </mat-card-content>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
 </div>
 

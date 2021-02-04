@@ -115,3 +115,18 @@ mat-row:hover {
   float: right;
 }
 
+/* 자산 등록창 - 유형명 */
+.modal-basic-title {
+  margin-left : 150px;
+}
+
+/* 자산 등록창 - 유형명 */
+.asset_type_name-submitBox {
+  margin-left : 150px;
+}
+
+/* 자산 등록창 - 유형코드 */
+.asset_type_code-submitBox{
+  margin-left : 150px;
+}
+
