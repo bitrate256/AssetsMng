@@ -1,4 +1,4 @@
-export interface Post {
+export interface Assets {
   asset_no: string;
   asset_type_code: string;
   user_name: string;

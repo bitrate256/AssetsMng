@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Post } from 'src/app/model/board/Post';
+import { Assets } from 'src/app/model/board/Assets';
 import {PageEvent} from '@angular/material/paginator';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -10,13 +10,6 @@ interface AssetType {
   viewValue: string;
 }
 
-/* 등록창 인터페이스 */
-/*
-export interface DialogData {
-  animal: string;
-  name: string;
-}*/
-
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -24,8 +17,10 @@ export interface DialogData {
 })
 export class BoardComponent implements OnInit {
 
-  posts: Post[] = [
-     { asset_no: '01', asset_type_code: 'T', user_name: '홍길동', asset_model_name: '테이블', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: 'N', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()}
+  assets: Assets[] = [
+    { asset_no: 'BNO_0001_T', asset_type_code: '테이블', user_name: '홍길동', asset_model_name: '테이블1', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '정상', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
+    { asset_no: 'BNO_0002_N', asset_type_code: '노트북', user_name: '홍길동', asset_model_name: 'ASUS X412F', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '입고', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
+    { asset_no: 'BNO_0003_M', asset_type_code: '모니터', user_name: '홍길동', asset_model_name: 'SAMSUNG XXX', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '수리완료', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()}
   ];
   displayedColumns: string[] = ['asset_no', 'asset_type_code', 'user_name', 'asset_model_name', 'asset_serial_no', 'use_start_date', 'asset_stat', 'asset_pjt_loc', 'etc', 'reg_date'];
 

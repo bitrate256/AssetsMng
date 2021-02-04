@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 // 브라우저 애니메이션
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,16 +17,31 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
-// 플렉스 레이아웃
+// Flex 레이아웃
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+// 컴포넌트
+import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home.component';
 import { BoardComponent } from './component/board/board.component';
+import { DetailComponent } from './component/detail/detail.component';
 
-import {MatPaginatorModule} from '@angular/material/paginator';
+// 부트스트랩
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
+export const MY_FORMATS = {
+  display: {
+    dateInput: 'YYYY/MM/DD',
+    monthYearLabel : 'MMM YYYY',
+  }
+};
 
 
 @NgModule({
@@ -36,6 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HomeComponent,
     BoardComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +68,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FlexLayoutModule,
     MatSelectModule,
     MatPaginatorModule,
-    NgbModule
+    NgbModule,
+    MatDatepickerModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

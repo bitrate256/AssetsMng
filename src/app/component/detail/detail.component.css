@@ -1,0 +1,117 @@
+/* 전체 영역을 반응형 으로 설정 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* 앵커 태그 마우스 위치시 포인터 변경 */
+a {
+  cursor: pointer;
+}
+
+/* 리스트 전체 (컨테이너) */
+.container {
+  min-width: 100%;
+}
+
+/* 테이블 헤더의 컨텐츠 중앙정렬 */
+mat-header-cell {
+  justify-content: center;
+}
+
+/* 테이블 컬럼의 컨텐츠 중앙정렬 */
+.column-center {
+  justify-content: center;
+}
+
+/* 게시글 없을경우 텍스트 중앙정렬. 상단 영역 여백 처리 */
+.no-content {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* 셀 스타일 지정. 마우스오버시 커서 형태 지정 */
+mat-row:hover {
+  background: lightgray;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* button-line-1 */
+/* 관리번호 */
+.asset_no-inputBox {
+  width: 20%;
+}
+
+/* 자산유형 */
+.selectBox-assetTypeInput {
+  width: 12%;
+  margin-left : 10px;
+}
+
+/* 유형등록 */
+.button-assetTypeInput {
+  width: 8%;
+  margin-left : 5px;
+}
+
+/* 모델명 */
+.asset_model_name-inputBox {
+  width: 20%;
+  margin-left : 10px;
+}
+
+/* Serial No */
+.asset_serial_no-inputBox {
+  width: 20%;
+  margin-left : 10px;
+}
+
+/* button-line-2 */
+/* 사용자 */
+.user_name-inputBox {
+  width: 20%;
+}
+
+/* 사용장소 */
+.asset_pjt_loc-inputBox {
+  width: 20%;
+  margin-left : 10px;
+}
+
+/* 고장유무 */
+.asset_stat-inputBox {
+  width: 20%;
+  margin-left : 10px;
+}
+
+/* 사용개시일 */
+.use_start_date {
+  width: 20%;
+  margin-left : 10px;
+}
+
+/* button-line-3 */
+/* 자산생성일 */
+.reg_date-inputBox {
+  width: 20%;
+}
+
+/* 비고 */
+.etc-inputBox {
+  width: 62%;
+  margin-left : 10px;
+}
+
+/* 닫기 버튼 - 하단 */
+.button-close {
+  float: right;
+}
+
+/* 저장 버튼 - 하단 */
+.button-save {
+  margin-right : 10px;
+  float: right;
+}
+

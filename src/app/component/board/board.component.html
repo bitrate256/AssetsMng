@@ -2,37 +2,39 @@
 <div class="wrapper">
   <mat-card class="card">
     <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-      <H3>자산 리스트</H3>
+      <H3>자산리스트</H3>
     </mat-card-title>
-
-    <mat-form-field appearance="fill">
-      <mat-label>자산 유형 선택</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let assetType of assetType" [value]="assetType.value">
-          {{assetType.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field class="assetName-searchBox">
-      <mat-label>모델명</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <mat-form-field class="userName-searchBox">
-      <mat-label>사용자명</mat-label>
-      <input matInput>
-    </mat-form-field>
-
     <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>자산 유형 선택</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let assetType of assetType" [value]="assetType.value">
+            {{assetType.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="asset_model_name-searchBox">
+        <mat-label>모델명</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field class="user_name-searchBox">
+        <mat-label>사용자명</mat-label>
+        <input matInput>
+      </mat-form-field>
+        <button class="button-search" mat-raised-button color="primary">
+          조회
+        </button>
+        <button class="button-excelDown" mat-raised-button color="primary">
+          Excel Down
+        </button>
       <div class="container">
-        <mat-table [dataSource]="posts">
+        <mat-table [dataSource]="assets">
           <ng-container matColumnDef="asset_no">
             <mat-header-cell *matHeaderCellDef>관리번호</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_no}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center" [routerLink]="['/detail']">{{element.asset_no}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="asset_type_code">
-            <mat-header-cell *matHeaderCellDef>자산유형코드</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>자산유형</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">{{element.asset_type_code}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="user_name">
@@ -40,11 +42,11 @@
             <mat-cell *matCellDef="let element" class="column-center">{{element.user_name}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="asset_model_name">
-            <mat-header-cell *matHeaderCellDef>자산모델명</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>모델명</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">{{element.asset_model_name}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="asset_serial_no">
-            <mat-header-cell *matHeaderCellDef>자산시리얼넘버</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>시리얼넘버</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">{{element.asset_serial_no}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="use_start_date">
@@ -64,24 +66,17 @@
             <mat-cell *matCellDef="let element" class="column-center">{{element.etc}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="reg_date">
-            <mat-header-cell *matHeaderCellDef>자산생성일</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>생성일</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">{{element.reg_date | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="modifiedAt">
-            <mat-header-cell *matHeaderCellDef>수정</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">
-              <mat-icon class="icon">edit</mat-icon>
-              <mat-icon class="icon">delete_forever</mat-icon>
-            </mat-cell>
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
         <mat-paginator [length]="100"
                        [pageSize]="10"
-                       [pageSizeOptions]="[5, 10, 25, 100]">
+                       [pageSizeOptions]="[10, 25, 100]">
         </mat-paginator>
-        <div *ngIf="posts.length === 0" class="no-content">
+        <div *ngIf="assets.length === 0" class="no-content">
           등록된 자산이 없습니다.
         </div>
       </div>
@@ -96,13 +91,24 @@
   <!-- 모달창 템플릿 -->
   <ng-template #mymodal let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">자산 등록</h4>
+      <h4 class="modal-title" class="modal-basic-title">자산 유형 등록</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <div class="modal-body">
-      이곳에 등록 템플릿을 작성합니다.
+      <mat-card-content>
+      <mat-form-field class="asset_type_name-submitBox">
+        <h6>유형명</h6>
+        <input matInput>
+      </mat-form-field>
+      </mat-card-content>
+      <mat-card-content>
+      <mat-form-field class="asset_type_code-submitBox">
+        <h6>유형코드</h6>
+        <input matInput>
+      </mat-form-field>
+      </mat-card-content>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>

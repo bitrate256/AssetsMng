@@ -1,0 +1,100 @@
+// 현재 출력중인 파일 : detail.component.html
+<div class="wrapper">
+  <mat-card class="card">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <H3>자산정보</H3>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="button-line-1">
+        <mat-form-field class="asset_no-inputBox">
+          <mat-label>관리번호</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="selectBox-assetTypeInput" appearance="fill">
+          <mat-label>자산유형</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let assetType of assetType" [value]="assetType.value">
+              {{assetType.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="button-assetTypeInput" mat-raised-button color="primary">
+          유형등록
+        </button>
+        <mat-form-field class="asset_model_name-inputBox">
+          <mat-label>모델명</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="asset_serial_no-inputBox">
+          <mat-label>Serial No</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="button-line-2">
+        <mat-form-field class="user_name-inputBox">
+          <mat-label>사용자</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="asset_pjt_loc-inputBox">
+          <mat-label>사용장소</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="asset_stat-inputBox">
+          <mat-label>고장유무</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="use_start_date">
+          <input matInput [matDatepicker]="picker" placeholder="날짜를 선택하세요">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+      <div class="button-line-3">
+        <mat-form-field class="reg_date-inputBox">
+          <mat-label>자산생성일</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="etc-inputBox">
+          <mat-label>비고</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+      <div class="container">
+        <mat-table [dataSource]="detail">
+          <ng-container matColumnDef="seq">
+            <mat-header-cell *matHeaderCellDef>No</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.seq}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="asset_no">
+            <mat-header-cell *matHeaderCellDef>관리번호</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_no}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="chng_rsn">
+            <mat-header-cell *matHeaderCellDef>변경사유</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.chng_rsn}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="chng_date">
+            <mat-header-cell *matHeaderCellDef>변경일</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.chng_date | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <div *ngIf="detail.length === 0" class="no-content">
+          등록된 이력이 없습니다.
+        </div>
+      </div>
+    </mat-card-content>
+    <div>
+      <button class="button-close" mat-raised-button color="primary">
+        닫기
+      </button>
+      <button class="button-save" mat-raised-button color="primary">
+        저장
+      </button>
+    </div>
+  </mat-card>
+</div>
+

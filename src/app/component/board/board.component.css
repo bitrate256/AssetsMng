@@ -10,6 +10,11 @@ a {
   cursor: pointer;
 }
 
+/* 리스트 전체 (컨테이너) */
+.container {
+  min-width: 100%;
+}
+
 /* 테이블 헤더의 컨텐츠 중앙정렬 */
 mat-header-cell {
   justify-content: center;
@@ -34,13 +39,22 @@ mat-row:hover {
 }
 
 /* 모델명 검색 */
-.assetName-searchBox {
+.asset_model_name-searchBox {
   margin-left : 30px;
 }
 
 /* 사용자명 검색 */
-.userName-searchBox {
+.user_name-searchBox {
   margin-left : 30px;
+}
+
+.button-search {
+  float: right;
+}
+
+.button-excelDown {
+  margin-right : 10px;
+  float: right;
 }
 
 /* [신규 등록] 버튼 우측 정렬 */
@@ -48,4 +62,17 @@ mat-row:hover {
   float: right;
 }
 
+/* 자산 등록창 - 유형명 */
+.modal-basic-title {
+  margin-left : 150px;
+}
 
+/* 자산 등록창 - 유형명 */
+.asset_type_name-submitBox {
+  margin-left : 150px;
+}
+
+/* 자산 등록창 - 유형코드 */
+.asset_type_code-submitBox{
+  margin-left : 150px;
+}
