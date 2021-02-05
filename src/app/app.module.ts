@@ -31,9 +31,14 @@ import { HomeComponent } from './component/home.component';
 import { BoardComponent } from './component/board/board.component';
 import { DetailComponent } from './component/detail/detail.component';
 
+// 서비스
+import { BoardService } from './service/rest-api/board.service';
+
 // 부트스트랩
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 export const MY_FORMATS = {
   display: {
@@ -71,9 +76,10 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     FormsModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BoardService],
 
   bootstrap: [AppComponent]
 })

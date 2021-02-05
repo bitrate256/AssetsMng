@@ -4,6 +4,9 @@ import {PageEvent} from '@angular/material/paginator';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
+import { BoardService } from './../../service/rest-api/board.service';
+import { ActivatedRoute } from '@angular/router';
+
 /* 셀렉트박스 인터페이스 */
 interface AssetType {
   value: string;
@@ -18,12 +21,15 @@ interface AssetType {
 export class BoardComponent implements OnInit {
 
   assets: Assets[] = [
-    { asset_no: 'BNO_0001_T', asset_type_code: '테이블', user_name: '홍길동', asset_model_name: '테이블1', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '정상', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
-    { asset_no: 'BNO_0002_N', asset_type_code: '노트북', user_name: '홍길동', asset_model_name: 'ASUS X412F', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '입고', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
-    { asset_no: 'BNO_0003_M', asset_type_code: '모니터', user_name: '홍길동', asset_model_name: 'SAMSUNG XXX', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '수리완료', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()}
+// tslint:disable-next-line:max-line-length
+//    { asset_no: 'BNO_0001_T', asset_type_code: '테이블', user_name: '홍길동', asset_model_name: '테이블1', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '정상', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
+// tslint:disable-next-line:max-line-length
+//    { asset_no: 'BNO_0002_N', asset_type_code: '노트북', user_name: '홍길동', asset_model_name: 'ASUS X412F', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '입고', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
+// tslint:disable-next-line:max-line-length
+//    { asset_no: 'BNO_0003_M', asset_type_code: '모니터', user_name: '홍길동', asset_model_name: 'SAMSUNG XXX', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '수리완료', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()}
   ];
   displayedColumns: string[] = ['asset_no', 'asset_type_code', 'user_name', 'asset_model_name', 'asset_serial_no', 'use_start_date', 'asset_stat', 'asset_pjt_loc', 'etc', 'reg_date'];
-
+  // boardName: string;
   /* 셀렉트박스 */
   assetType: AssetType[] = [
     {value: 'A', viewValue: '전체'},
@@ -49,11 +55,18 @@ export class BoardComponent implements OnInit {
 
   /* 모달창 기능 */
   title = 'angular-website';
-  closeResult!: string
+  closeResult!: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private boardService: BoardService,
+              private route: ActivatedRoute) {
+    // this.boardName = this.route.snapshot.params.boardName;
+  }
 
   ngOnInit(): void {
+    this.boardService.getAssets().then(response => {
+      this.assets = response;
+    });
   }
 
   open(content: any): void {
