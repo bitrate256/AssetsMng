@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+// 구 컴포넌트
 import { HomeComponent } from './component/home.component';
 import { BoardComponent } from './component/board/board.component';
 import { DetailComponent } from './component/detail/detail.component';
