@@ -43,9 +43,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { BoardListComponent } from './component/board-list/board-list.component';
-import { BoardCreateComponent } from './component/board-create/board-create.component';
-import { BoardDetailsComponent } from './component/board-details/board-details.component';
+import { AssetsListComponent } from './component/assets-list/assets-list.component';
+import { AssetsCreateComponent } from './component/assets-create/assets-create.component';
+import { AssetsDetailsComponent } from './component/assets-details/assets-details.component';
 
 export const MY_FORMATS = {
   display: {
@@ -61,9 +61,9 @@ export const MY_FORMATS = {
     HomeComponent,
     BoardComponent,
     DetailComponent,
-    BoardListComponent,
-    BoardCreateComponent,
-    BoardDetailsComponent,
+    AssetsListComponent,
+    AssetsCreateComponent,
+    AssetsDetailsComponent,
   ],
   imports: [
     BrowserModule,

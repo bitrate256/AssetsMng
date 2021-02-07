@@ -7,7 +7,7 @@ const baseURL = 'http://localhost:5000/Assets';
 @Injectable({
   providedIn: 'root'
 })
-export class BoardService {
+export class AssetsService {
 
   constructor(private httpClient: HttpClient) { }
 
