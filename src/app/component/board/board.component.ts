@@ -4,7 +4,6 @@ import {PageEvent} from '@angular/material/paginator';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
-import { BoardService } from './../../service/rest-api/board.service';
 import { ActivatedRoute } from '@angular/router';
 
 /* 셀렉트박스 인터페이스 */
@@ -57,17 +56,9 @@ export class BoardComponent implements OnInit {
   title = 'angular-website';
   closeResult!: string;
 
-  constructor(private modalService: NgbModal,
-              private boardService: BoardService,
-              private route: ActivatedRoute) {
-    // this.boardName = this.route.snapshot.params.boardName;
-  }
+  constructor(private modalService: NgbModal) {  }
 
-  ngOnInit(): void {
-    this.boardService.getAssets().then(response => {
-      this.assets = response;
-    });
-  }
+  ngOnInit(): void {}
 
   open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

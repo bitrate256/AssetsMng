@@ -37,7 +37,6 @@ import { BoardComponent } from './component/board/board.component';
 import { DetailComponent } from './component/detail/detail.component';
 
 // 서비스
-import { BoardService } from './service/rest-api/board.service';
 
 // 부트스트랩
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -84,7 +83,7 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     HttpClientModule
   ],
-  providers: [BoardService],
+  providers: [],
 
   bootstrap: [AppComponent]
 })
