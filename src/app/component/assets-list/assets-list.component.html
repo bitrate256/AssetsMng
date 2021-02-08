@@ -1,1 +1,65 @@
-<p>board-list works!</p>
+<p>assets-list works!</p>
+
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name"
+          [(ngModel)]="name"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchByName()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Product List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let product of products; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setCurrentProduct(product, i)"
+        >
+  
+        </li>
+      </ul>
+  
+      <button class="m-4 btn btn-sm btn-danger" (click)="deleteAllProducts()">
+        Delete All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentProduct">
+        <h4>Product</h4>
+        <div>
+          <label><strong>Name:</strong></label> 
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+  
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+  
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/products/">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentProduct">
+        <br />
+        <p>Please click on a product</p>
+      </div>
+    </div>
+  </div>

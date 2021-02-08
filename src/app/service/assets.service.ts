@@ -15,27 +15,32 @@ export class AssetsService {
     return this.httpClient.get(baseURL);
   }
 
-  read(id): Observable<any> {
-    return this.httpClient.get(`${baseURL}/${id}`);
+  read(asset_no: string): Observable<any> {
+    return this.httpClient.get(`${baseURL}/${asset_no}`);
   }
 
-  create(data): Observable<any> {
+  create(data: { asset_no: string; asset_type_code: string;
+    user_name: string; asset_model_name: string;
+    asset_serial_no: string; use_start_date: Date;
+    asset_stat: string; asset_pjt_loc: string;
+    etc: string; reg_date: Date;
+  }): Observable<any> {
     return this.httpClient.post(baseURL, data);
   }
 
-  update(id, data): Observable<any> {
-    return this.httpClient.put(`${baseURL}/${id}`, data);
+  update(asset_no : string, data : string): Observable<any> {
+    return this.httpClient.put(`${baseURL}/${asset_no}`, data);
   }
 
-  delete(id): Observable<any> {
-    return this.httpClient.delete(`${baseURL}/${id}`);
+  delete(asset_no : string): Observable<any> {
+    return this.httpClient.delete(`${baseURL}/${asset_no}`);
   }
 
   deleteAll(): Observable<any> {
     return this.httpClient.delete(baseURL);
   }
 
-  searchByName(name): Observable<any> {
-    return this.httpClient.get(`${baseURL}?name=${name}`);
+  searchByName(user_name : string): Observable<any> {
+    return this.httpClient.get(`${baseURL}?name=${user_name}`);
   }
 }

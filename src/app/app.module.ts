@@ -33,6 +33,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // 컴포넌트
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home.component';
+import { AssetsListComponent } from './component/assets-list/assets-list.component';
+import { AssetsCreateComponent } from './component/assets-create/assets-create.component';
+import { AssetsDetailsComponent } from './component/assets-details/assets-details.component';
+
+// 구 컴포넌트
 import { BoardComponent } from './component/board/board.component';
 import { DetailComponent } from './component/detail/detail.component';
 
@@ -43,9 +48,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { AssetsListComponent } from './component/assets-list/assets-list.component';
-import { AssetsCreateComponent } from './component/assets-create/assets-create.component';
-import { AssetsDetailsComponent } from './component/assets-details/assets-details.component';
 
 export const MY_FORMATS = {
   display: {
