@@ -22,7 +22,8 @@ export class AssetsDetailsComponent implements OnInit {
     this.getAssets(this.route.snapshot.paramMap.get('asset_no'));
   }
 
-  getAssets(asset_no: string): void {
+  // asset_no 타입 지정 문제 해결 필요
+  getAssets(asset_no): void {
     this.assetsService.read(asset_no)
       .subscribe(
         assets => {
