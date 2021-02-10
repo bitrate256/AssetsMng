@@ -20,10 +20,10 @@ export class AssetsService {
   }
 
   create(data: { assetNo: string; assetTypeCode: string;
-    username: string; assetmodelname: string;
-    assetserialno: string; usestartdate: Date;
-    assetstat: string; assetpjtloc: string;
-    etc: string; regdate: Date;
+    userName: string; assetModelName: string;
+    assetSerialNo: string; useStartDate: Date;
+    assetStat: string; assetPjtLoc: string;
+    etc: string; regDate: Date;
   }): Observable<any> {
     return this.httpClient.post(baseURL, data);
   }

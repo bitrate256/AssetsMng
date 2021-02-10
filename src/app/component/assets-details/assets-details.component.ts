@@ -20,7 +20,7 @@ export class AssetsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.message = '';
     // 하단의 getAssets 변수 타입을 string 으로 선언시 이쪽 부분은 string 이 아님.
-    // 이 paramMap.get 의 타입은 어디서?
+    // 이 paramMap.get 의 타입은 어디에 정의되어 있는가?
     this.getAssets(this.route.snapshot.paramMap.get('assetNo'));
   }
 
