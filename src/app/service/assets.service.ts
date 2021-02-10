@@ -15,32 +15,32 @@ export class AssetsService {
     return this.httpClient.get(baseURL);
   }
 
-  read(asset_no: string): Observable<any> {
-    return this.httpClient.get(`${baseURL}/${asset_no}`);
+  read(assetNo: string): Observable<any> {
+    return this.httpClient.get(`${baseURL}/${assetNo}`);
   }
 
-  create(data: { asset_no: string; asset_type_code: string;
-    user_name: string; asset_model_name: string;
-    asset_serial_no: string; use_start_date: Date;
-    asset_stat: string; asset_pjt_loc: string;
-    etc: string; reg_date: Date;
+  create(data: { assetNo: string; assetTypeCode: string;
+    username: string; assetmodelname: string;
+    assetserialno: string; usestartdate: Date;
+    assetstat: string; assetpjtloc: string;
+    etc: string; regdate: Date;
   }): Observable<any> {
     return this.httpClient.post(baseURL, data);
   }
 
-  update(asset_no : string, data : string): Observable<any> {
-    return this.httpClient.put(`${baseURL}/${asset_no}`, data);
+  update(assetNo: string, data: string): Observable<any> {
+    return this.httpClient.put(`${baseURL}/${assetNo}`, data);
   }
 
-  delete(asset_no : string): Observable<any> {
-    return this.httpClient.delete(`${baseURL}/${asset_no}`);
+  delete(assetNo: string): Observable<any> {
+    return this.httpClient.delete(`${baseURL}/${assetNo}`);
   }
 
   deleteAll(): Observable<any> {
     return this.httpClient.delete(baseURL);
   }
 
-  searchByName(user_name : string): Observable<any> {
-    return this.httpClient.get(`${baseURL}?name=${user_name}`);
+  searchByName(username: string): Observable<any> {
+    return this.httpClient.get(`${baseURL}?name=${username}`);
   }
 }

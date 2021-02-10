@@ -10,7 +10,7 @@ export class AssetsListComponent implements OnInit {
   assets: any;
   currentAssets = null;
   currentIndex = -1;
-  user_name = '';
+  userName = '';
 
   constructor(private assetsService: AssetsService) { }
 
@@ -37,7 +37,6 @@ export class AssetsListComponent implements OnInit {
   }
 
   // 타입 명시 이전 원본 -> (assets, index)
-  // 
   setCurrentAssets(assets: null, index: number): void {
     this.currentAssets = assets;
     this.currentIndex = index;
@@ -56,7 +55,7 @@ export class AssetsListComponent implements OnInit {
   }
 
   searchByName(): void {
-    this.assetsService.searchByName(this.user_name)
+    this.assetsService.searchByName(this.userName)
       .subscribe(
         assets => {
           this.assets = assets;

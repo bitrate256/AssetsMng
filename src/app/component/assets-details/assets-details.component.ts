@@ -19,12 +19,15 @@ export class AssetsDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    this.getAssets(this.route.snapshot.paramMap.get('asset_no'));
+    // 하단의 getAssets 변수 타입을 string 으로 선언시 이쪽 부분은 string 이 아님.
+    // 이 paramMap.get 의 타입은 어디서?
+    this.getAssets(this.route.snapshot.paramMap.get('assetNo'));
   }
 
   // asset_no 타입 지정 문제 해결 필요
-  getAssets(asset_no): void {
-    this.assetsService.read(asset_no)
+  // 카멜케이스 사용할 것. 언더바 사용했기 때문에 오류 발생함.
+  getAssets(assetNo: string): void {
+    this.assetsService.read(assetNo)
       .subscribe(
         assets => {
           this.currentAssets = assets;
@@ -42,7 +45,7 @@ export class AssetsDetailsComponent implements OnInit {
       available: status
     };
 
-    this.assetsService.update(this.currentAssets.asset_no, data)
+    this.assetsService.update(this.currentAssets.assetNo, data)
       .subscribe(
         response => {
           this.currentAssets.available = status;
@@ -54,7 +57,7 @@ export class AssetsDetailsComponent implements OnInit {
   }
 */
   updateAssets(): void {
-    this.assetsService.update(this.currentAssets.asset_no, this.currentAssets)
+    this.assetsService.update(this.currentAssets.assetNo, this.currentAssets)
       .subscribe(
         response => {
           console.log(response);
@@ -66,7 +69,7 @@ export class AssetsDetailsComponent implements OnInit {
   }
 
   deleteAssets(): void {
-    this.assetsService.delete(this.currentAssets.asset_no)
+    this.assetsService.delete(this.currentAssets.assetNo)
       .subscribe(
         response => {
           console.log(response);
