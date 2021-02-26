@@ -29,56 +29,60 @@
         </button>
       <div class="container">
         <mat-table [dataSource]="assets">
-          <ng-container matColumnDef="asset_no">
+          <ng-container matColumnDef="assetNo">
             <mat-header-cell *matHeaderCellDef>관리번호</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center" [routerLink]="['/detail']">{{element.asset_no}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center" [routerLink]="['/detail']">{{element.assetNo}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="asset_type_code">
+          <ng-container matColumnDef="assetTypeCode">
             <mat-header-cell *matHeaderCellDef>자산유형</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_type_code}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetTypeCode}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="user_name">
+          <ng-container matColumnDef="userName">
             <mat-header-cell *matHeaderCellDef>사용자</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.user_name}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.userName}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="asset_model_name">
+          <ng-container matColumnDef="assetModelName">
             <mat-header-cell *matHeaderCellDef>모델명</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_model_name}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetModelName}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="asset_serial_no">
+          <ng-container matColumnDef="assetSerialNo">
             <mat-header-cell *matHeaderCellDef>시리얼넘버</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_serial_no}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetSerialNo}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="use_start_date">
+          <ng-container matColumnDef="useStartDate">
             <mat-header-cell *matHeaderCellDef>사용개시일</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.use_start_date | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.useStartDate | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="asset_stat">
+          <ng-container matColumnDef="assetStat">
             <mat-header-cell *matHeaderCellDef>고장유무</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_stat}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetStat}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="asset_pjt_loc">
+          <ng-container matColumnDef="assetPjtLoc">
             <mat-header-cell *matHeaderCellDef>프로젝트장소</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.asset_pjt_loc}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.assetPjtLoc}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="etc">
             <mat-header-cell *matHeaderCellDef>비고</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">{{element.etc}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="reg_date">
+          <ng-container matColumnDef="regDate">
             <mat-header-cell *matHeaderCellDef>생성일</mat-header-cell>
-            <mat-cell *matCellDef="let element" class="column-center">{{element.reg_date | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
+            <mat-cell *matCellDef="let element" class="column-center">{{element.regDate | date: 'yyyy-MM-dd HH:mm'}}</mat-cell>
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
+        <!--
         <mat-paginator [length]="100"
                        [pageSize]="10"
                        [pageSizeOptions]="[10, 25, 100]">
         </mat-paginator>
+        -->
+        <!--
         <div *ngIf="assets.length === 0" class="no-content">
           등록된 자산이 없습니다.
         </div>
+         -->
       </div>
     </mat-card-content>
     <div>
