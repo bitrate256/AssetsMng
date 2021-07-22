@@ -28,7 +28,7 @@
     "mat-table-exporter": "^1.2.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "xlsx": "^0.16.9",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
