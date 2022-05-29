@@ -6,6 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // 마테리얼
+/*
+    프로젝트 열고 터미널에서 패키지 설치시 json 파일에 자동으로 중복추가되는 현상 확인하여 주의 필요함.
+    1.  타 컴퓨터에 clone 시 프로젝트 열기 전에 material 패키지 먼저 설치.
+    2.  빌드시 package-lock.json 에서 패키지 의존성 diff 확인.
+*/
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -28,11 +33,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // 컴포넌트
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home.component';
+import { AssetsListComponent } from './component/assets-list/assets-list.component';
+import { AssetsCreateComponent } from './component/assets-create/assets-create.component';
+import { AssetsDetailsComponent } from './component/assets-details/assets-details.component';
+
+// 구 컴포넌트
 import { BoardComponent } from './component/board/board.component';
 import { DetailComponent } from './component/detail/detail.component';
 
 // 서비스
-import { BoardService } from './service/rest-api/board.service';
 
 // 부트스트랩
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -54,6 +63,9 @@ export const MY_FORMATS = {
     HomeComponent,
     BoardComponent,
     DetailComponent,
+    AssetsListComponent,
+    AssetsCreateComponent,
+    AssetsDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +91,7 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     HttpClientModule
   ],
-  providers: [BoardService],
+  providers: [],
 
   bootstrap: [AppComponent]
 })

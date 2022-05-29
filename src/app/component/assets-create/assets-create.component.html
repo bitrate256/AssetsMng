@@ -1,0 +1,37 @@
+<p>assets-create works!</p>
+
+<div style="width: 500px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="asset_no">asset_no</label>
+          <input
+            type="text"
+            class="form-control"
+            id="asset_no"
+            required
+            [(ngModel)]="assets.asset_no"
+            asset_no="asset_no"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">asset_type_code</label>
+          <input
+            class="form-control"
+            id="asset_type_code"
+            required
+            [(ngModel)]="assets.asset_type_code"
+            name="asset_type_code"
+          />
+        </div>
+  
+        <button (click)="createAssets()" class="btn btn-success">Create</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h3>You successfully created a product!</h3>
+        <button class="btn btn-success" (click)="newAssets()">New..</button>
+      </div>
+    </div>
+  </div>
