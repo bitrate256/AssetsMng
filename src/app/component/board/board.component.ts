@@ -20,14 +20,11 @@ interface AssetType {
 export class BoardComponent implements OnInit {
 
   assets: Assets[] = [
-// tslint:disable-next-line:max-line-length
-//    { asset_no: 'BNO_0001_T', asset_type_code: '테이블', user_name: '홍길동', asset_model_name: '테이블1', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '정상', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
-// tslint:disable-next-line:max-line-length
-//    { asset_no: 'BNO_0002_N', asset_type_code: '노트북', user_name: '홍길동', asset_model_name: 'ASUS X412F', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '입고', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()},
-// tslint:disable-next-line:max-line-length
-//    { asset_no: 'BNO_0003_M', asset_type_code: '모니터', user_name: '홍길동', asset_model_name: 'SAMSUNG XXX', asset_serial_no: '1111', use_start_date: new Date(), asset_stat: '수리완료', asset_pjt_loc: '본사', etc: '비고내용', reg_date: new Date()}
+    { assetNo: 'BNO_0001_T', assetTypeCode: '테이블', userName: '홍길동', assetModelName: '테이블1', assetSerialNo: '1111', useStartDate: new Date(), assetStat: '정상', assetPjtLoc: '본사', etc: '비고내용', regDate: new Date()},
+    { assetNo: 'BNO_0002_N', assetTypeCode: '노트북', userName: '홍길동', assetModelName: 'ASUS X412F', assetSerialNo: '1111', useStartDate: new Date(), assetStat: '입고', assetPjtLoc: '본사', etc: '비고내용', regDate: new Date()},
+    { assetNo: 'BNO_0003_M', assetTypeCode: '모니터', userName: '홍길동', assetModelName: 'SAMSUNG XXX', assetSerialNo: '1111', useStartDate: new Date(), assetStat: '수리완료', assetPjtLoc: '본사', etc: '비고내용', regDate: new Date()}
   ];
-  displayedColumns: string[] = ['asset_no', 'asset_type_code', 'user_name', 'asset_model_name', 'asset_serial_no', 'use_start_date', 'asset_stat', 'asset_pjt_loc', 'etc', 'reg_date'];
+  displayedColumns: string[] = ['assetNo', 'assetTypeCode', 'userName', 'assetModelName', 'assetSerialNo', 'useStartDate', 'assetStat', 'assetPjtLoc', 'etc', 'regDate'];
   // boardName: string;
   /* 셀렉트박스 */
   assetType: AssetType[] = [
@@ -58,7 +55,12 @@ export class BoardComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {  }
 
-  ngOnInit(): void {}
+  // response => 리스폰스에 결과 담아서 보내기
+  ngOnInit(): void {
+    this.boardService.getAssets().then(response => {
+      this.assets = response;
+    });
+  }
 
   open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

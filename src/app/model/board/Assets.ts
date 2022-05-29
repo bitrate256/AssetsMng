@@ -1,12 +1,12 @@
 export interface Assets {
-  asset_no: string;
-  asset_type_code: string;
-  user_name: string;
-  asset_model_name: string;
-  asset_serial_no: string;
-  use_start_date: Date;
-  asset_stat: string;
-  asset_pjt_loc: string;
+  assetNo: string;
+  assetTypeCode: string;
+  userName: string;
+  assetModelName: string;
+  assetSerialNo: string;
+  useStartDate: Date;
+  assetStat: string;
+  assetPjtLoc: string;
   etc: string;
-  reg_date: Date;
+  regDate: Date;
 }
